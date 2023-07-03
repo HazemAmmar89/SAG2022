@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "309116468853",
+    "project_id": "sag-communication",
+    "storage_bucket": "sag-communication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309116468853:android:dcedf922ed68e9c12a823c",
+        "android_client_info": {
+          "package_name": "com.example.sagapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309116468853-2p55kip35kvrn5addubt4c6qdrmmj3k5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sagapp",
+            "certificate_hash": "48fb64a8f71f6acedec664a7d4f37edb1763fcfb"
+          }
+        },
+        {
+          "client_id": "309116468853-mf23gfklc0vqqs6efml0egm61r1l8j6r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8qGN7THhIlVvgcpCdxCtSrv83M35FmcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309116468853-mf23gfklc0vqqs6efml0egm61r1l8j6r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

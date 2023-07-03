@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white"
+    tools:context=".commands.CommunicationFragment">
+
+<!--    <ng.max.slideview.SlideView-->
+<!--        android:id="@+id/slideView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        android:paddingBottom="@dimen/_60sdp"-->
+<!--        app:sv_buttonBackgroundColor="@color/off_white"-->
+<!--        app:sv_buttonImage="@drawable/ic_arrow"-->
+<!--        app:sv_slideBackgroundColor="@color/dark_green"-->
+<!--        app:sv_slideText="slide to assistant mood"-->
+<!--        app:sv_slideTextColor="@color/dark_green"-->
+<!--        app:sv_slideTextSize="16sp"-->
+<!--        app:sv_animateSlideText="true"-->
+<!--        app:sv_reverseSlide="false"-->
+<!--        app:sv_strokeColor="@color/dark_green"-->
+<!--        />-->
+
+    <com.chinalwb.slidetoconfirmlib.SlideToConfirm
+     app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/slide_to_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="20dp"
+        app:border_radius="30dp"
+        app:border_width="2dp"
+        app:slider_background_color="@color/off_white"
+        app:slider_color="@color/dark_green"
+        app:slider_width="75dp"
+        app:slider_reset_duration="1000"
+        app:slider_vibration_duration="50"
+        app:slider_threshold="1dp"
+        app:engage_text="Your action text"
+        app:engage_text_size="17sp"
+        app:engage_text_color="@android:color/white"
+        app:engaged_text_font="@font/pro_solid"
+        app:completed_text="Go To Assistant Mood!!"
+        app:completed_text_color="@android:color/darker_gray"
+        app:completed_text_size="@dimen/_18ssp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

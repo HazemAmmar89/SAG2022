@@ -35,4 +35,11 @@ class CommandsViewModel @Inject constructor(private val alarmScheduler: FireBase
             Log.d("llllllllllll", "readMessagesFromFirebase: done")
         }
     }
+
+    fun reminderMessageFromFirebase() {
+        viewModelScope.launch {
+            alarmScheduler.reminderOperations()
+            Log.d("llllllllllll", "readMessagesFromFirebase: done")
+        }
+    }
 }

@@ -5,4 +5,6 @@ interface FireBaseWithAlarm {
     suspend fun alarmOperations()
 
     suspend fun whatsappMessage()
+
+    suspend fun reminderOperations()
 }

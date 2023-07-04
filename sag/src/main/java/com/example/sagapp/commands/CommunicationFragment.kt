@@ -17,6 +17,7 @@ class CommunicationFragment : BaseFragment<FragmentCommuncationBinding, Commands
     override fun onFragmentReady() {
         mViewModel.readMessagesFromFirebase()
         mViewModel.whatsappMessageFromFirebase()
+        mViewModel.reminderMessageFromFirebase()
         subscribeToObservers()
         binding.slideToConfirm.slideListener = object : ISlideListener {
             override fun onSlideStart() {

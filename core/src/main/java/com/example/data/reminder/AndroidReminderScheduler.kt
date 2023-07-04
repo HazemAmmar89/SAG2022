@@ -23,7 +23,6 @@ class AndroidReminderScheduler @Inject constructor(private val context: Context
         intent.apply {
             intent.putExtra("title", item.title)
             intent.putExtra("description", item.description)
-            intent.putExtra("id",  item.id!!.toInt()+1)
         }
         val interval = when (item.repeat) {
             ReminderRepeatTypes.ONCE -> 0

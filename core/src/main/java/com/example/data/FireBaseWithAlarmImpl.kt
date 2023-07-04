@@ -17,6 +17,7 @@ import com.google.firebase.database.ValueEventListener
 import java.time.LocalDateTime
 import java.util.Calendar
 import javax.inject.Inject
+import kotlin.math.log
 
 class FireBaseWithAlarmImpl @Inject constructor(
     private val alarmScheduler: AlarmScheduler,
@@ -27,18 +28,7 @@ class FireBaseWithAlarmImpl @Inject constructor(
     private val sagRef = FirebaseDatabase.getInstance().getReference("commands")
 
     override suspend fun alarmOperations() {
-//        val calendar=Calendar.getInstance()
-//        calendar[Calendar.YEAR] = 2023
-//        calendar[Calendar.MONTH] = Calendar.JUNE
-//        calendar[Calendar.DAY_OF_MONTH] = 30
-//        calendar[Calendar.HOUR_OF_DAY] = 11
-//        calendar[Calendar.AM_PM]=Calendar.PM
-//        calendar[Calendar.MINUTE] = 59
-//        calendar[Calendar.MILLISECOND] = 0
-//        calendar[Calendar.SECOND] = 0
-//        Log.e("remainder22", "alarmOperations:${calendar.time} ____ ${calendar.timeInMillis}", )
-//        val reminderItem=ReminderModel(id = 1, title = "hazem",description = "hello it time to done this task", repeat = ReminderRepeatTypes.DAILY,isDone = false, date = calendar)
-//        reminderItem.let (reminderScheduler::scheduleReminder)
+
 
         val alarmRef = sagRef.child("alarm")
         val schedulerRef = alarmRef.child("scheduler")
@@ -126,6 +116,49 @@ class FireBaseWithAlarmImpl @Inject constructor(
             }
 
         })
+
+    }
+
+    override suspend fun reminderOperations() {
+        val reminderRef = sagRef.child("reminder")
+        val calendar=Calendar.getInstance()
+        reminderRef.addValueEventListener(object : ValueEventListener {
+            @RequiresApi(Build.VERSION_CODES.O)
+            override fun onDataChange(snapshot: DataSnapshot) {
+                Log.e("whatsappSnapshot", "onDataChange: $snapshot")
+                snapshot.children.forEach { phoneNumber ->
+                    val collectPhoneNumbers = (phoneNumber.value as Map<*, *>).toMutableMap()
+                    Log.e("llreminder", "onDataChange: ${collectPhoneNumbers.toString()}")
+                    if (collectPhoneNumbers["success"].toString() == "0") {
+                        Log.e("reminder____", "onDataChange: ${collectPhoneNumbers.toString()}", )
+                        calendar[Calendar.YEAR] = collectPhoneNumbers["year"].toString().toInt()
+                        calendar[Calendar.MONTH] =collectPhoneNumbers["month"].toString().toInt() - 1
+                        calendar[Calendar.DAY_OF_MONTH] = collectPhoneNumbers["day"].toString().toInt()
+                        calendar[Calendar.HOUR_OF_DAY] = collectPhoneNumbers["hour"].toString().toInt()
+                        calendar[Calendar.AM_PM]=collectPhoneNumbers["AM_PM"].toString().toInt()
+                        calendar[Calendar.MINUTE] = collectPhoneNumbers["minute"].toString().toInt()
+                        calendar[Calendar.MILLISECOND] = 0
+                        calendar[Calendar.SECOND] = 0
+                        val reminderItem=ReminderModel( title = collectPhoneNumbers["title"].toString(),description = collectPhoneNumbers["description"].toString(),date = calendar)
+                        reminderItem.let (reminderScheduler::scheduleReminder)
+                        collectPhoneNumbers["success"] = 1
+                        reminderRef.child(phoneNumber.key.toString()).setValue(collectPhoneNumbers)
+
+
+                    }
+
+
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("firebasesched", "onDataChange: ${error.message}")
+            }
+
+        })
+
+
+        Log.e("remainder22", "alarmOperations:${calendar.time} ____ ${calendar.timeInMillis}", )
 
     }
 

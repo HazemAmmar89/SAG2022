@@ -37,6 +37,18 @@
     <string name="successful_operation_tv">Successful operation</string>
     <string name="success_sub_title">Check your Email to see new password</string>
     <string name="home_TV">Smart Assistant Glasses</string>
+    <string name="create_alarm_tv">Create Alarm</string>
+    <string name="no_alarms_here_tv">No alarms here</string>
+    <string name="alarm_date_tv">Alarm Date</string>
+    <string name="alarm_status_tv">Alarm Status  </string>
+    <string name="alarm_tv">Alarm</string>
+    <string name="Alarm_ttv">Alarm</string>
+    <string name="reminder_type_tv">Reminder Type</string>
+    <string name="reminder_title_tv">Reminder Title</string>
+    <string name="reminder_description_tv">Reminder Description</string>
+    <string name="date_and_time_tv">Date and Time</string>
+    <string name="edit_alarm_tv">Edit Alarm</string>
+    <string name="set_alarm_tv">Set alarm</string>
 
 
 </resources>

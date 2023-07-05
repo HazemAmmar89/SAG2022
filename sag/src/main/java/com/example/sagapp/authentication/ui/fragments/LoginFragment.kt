@@ -1,5 +1,6 @@
 package com.example.sagapp.authentication.ui.fragments
 
+import android.graphics.Color
 import android.util.Log
 import androidx.fragment.app.viewModels
 import com.example.data.remote.entities.LoginParams
@@ -52,7 +53,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
     private fun handleUiState(action: LoginAction) {
         when (action) {
             is LoginAction.FailureMessage -> {
-                Log.e("hhh", "fail")
+               binding.loginFragmentEmailInputText.error = "email is not correct"
+               binding.loginFragmentEmailInputTextLayout.boxStrokeColor = Color.RED
                 binding.spinKit.gone()
 
             }

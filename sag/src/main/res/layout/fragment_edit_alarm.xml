@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/off_white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".alarm.ui.fragments.EditAlarm">
     <androidx.constraintlayout.widget.Guideline
@@ -55,7 +56,7 @@
         app:layout_constraintTop_toTopOf="@id/guideline3"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/guideline2"
-        android:layout_marginLeft="80dp"
+        android:layout_marginLeft="20dp"
         />
 
     <ImageView

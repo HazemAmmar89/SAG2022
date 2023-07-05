@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".alarm.ui.fragments.EditAlarm">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="150dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".10"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".05"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".20"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_alarm_tv"
+        style="@style/home_TV"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline3"
+        app:layout_constraintBottom_toBottomOf="@id/guideline1"
+
+        />
+
+    <TextView
+        android:id="@+id/create_alarm_backarrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_arrow_back"
+        app:layout_constraintTop_toTopOf="@id/guideline3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline2"
+        android:layout_marginLeft="80dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/alarm_bg"
+        android:layout_marginTop="1dp"
+
+        app:layout_constraintTop_toTopOf="@id/guideline4"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <Button
+        android:id="@+id/timepicker"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:padding="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline4"
+        android:layout_marginTop="50dp"
+        android:text="@string/set_alarm_tv"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/setAlarm"
+            android:textSize="20sp"
+            android:padding="8dp"
+            android:background="@drawable/rounded_button_bg"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="640dp"
+            android:text="Save"/>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancelAlarm"
+            android:textSize="20sp"
+            android:padding="8dp"
+            android:background="@drawable/rounded_button_bg"
+            android:layout_marginTop="640dp"
+            android:layout_marginEnd="40dp"
+            android:layout_alignParentEnd="true"
+            android:text="Cancel"/>
+
+
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/line"
+        android:layout_width="332dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="100dp"
+        android:drawableStart="@drawable/linn2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/timepicker"
+        />
+
+
+    <TextView
+        android:id="@+id/ringtone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Ringtone"
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/_25sdp"
+        app:layout_constraintTop_toTopOf="@id/line"
+        />
+    <TextView
+        android:id="@+id/ringtone_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:hint="Default"
+        android:textSize="17dp"
+        android:textColorHint="#BFCCB5"
+        android:layout_marginEnd="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/line"
+        />
+
+
+    <TextView
+        android:id="@+id/arrow_ringtone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textSize="17dp"
+        android:layout_marginLeft="50dp"
+        android:drawableRight="@drawable/white_arrow"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/line"
+        />
+
+    <TextView
+        android:id="@+id/repeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Repeat"
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/_25sdp"
+        app:layout_constraintTop_toTopOf="@id/ringtone"
+        />
+
+
+    <TextView
+        android:id="@+id/repeat_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:hint="Daily"
+        android:textSize="17dp"
+        android:textColorHint="#BFCCB5"
+        android:layout_marginEnd="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ringtone_hint"
+        />
+
+
+    <TextView
+        android:id="@+id/repeat_ringtone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textSize="17dp"
+        android:layout_marginLeft="50dp"
+        android:drawableRight="@drawable/white_arrow"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/arrow_ringtone"
+        />
+
+    <TextView
+        android:id="@+id/vibrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Vibrate when alarm sounds"
+        android:textSize="23dp"
+        android:textColor="#ffffff"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/_25sdp"
+        app:layout_constraintTop_toTopOf="@id/repeat"
+        />
+
+
+
+    <TextView
+        android:id="@+id/vibrate_ringtone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:textSize="17dp"
+        android:layout_marginLeft="80dp"
+        android:drawableRight="@drawable/switch_icon"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/repeat_hint"
+        />
+
+    <TextView
+        android:id="@+id/lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Lable"
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/_25sdp"
+        app:layout_constraintTop_toTopOf="@id/vibrate"
+        />
+    <TextView
+        android:id="@+id/label_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:hint="Enter Label"
+        android:textSize="17dp"
+        android:textColorHint="#BFCCB5"
+        android:layout_marginEnd="65dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/vibrate_ringtone"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

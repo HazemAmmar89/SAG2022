@@ -49,6 +49,7 @@
     <string name="date_and_time_tv">Date and Time</string>
     <string name="edit_alarm_tv">Edit Alarm</string>
     <string name="set_alarm_tv">Set alarm</string>
+    <string name="create_reminder_tv">Create Reminder</string>
 
 
 </resources>

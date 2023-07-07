@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="first_onboard_page">Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry\'s standard </string>
-    <string name="second_onboard_page">Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry\'s standard</string>
-    <string name="third_onboard_page">Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry\'s standard</string>
-    <string name="first_onboard_screen">How to use SAG</string>
+    <string name="first_onboard_page">SAG is your ultimate personal digital assistant app, designed to make your life easier and more organized.\
+        Let us handle your tasks.</string>
+    <string name="second_onboard_page">Say goodbye to overwhelming to-do lists and juggling multiple apps. With SAG, you can centralize your tasks. </string>
+    <string name="third_onboard_page"> Interact with SAG using\
+        simple voice commands \ Whether you need to send messages, set alarms,
+        \set reminder, or make a call.</string>
+    <string name="first_onboard_screen">Meet SAG</string>
+    <string name="second_onboard_screen">Simplify Your Daily Routine</string>
+    <string name="third_onboard_screen">Smart Voice Commands</string>
 </resources>

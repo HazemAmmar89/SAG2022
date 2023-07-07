@@ -11,8 +11,9 @@ import com.example.sagapp.R
 import com.example.sagapp.authentication.ui.viewmodel.LoginViewModel
 import com.example.sagapp.databinding.ActivityScreensBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ScreensActivity : AppCompatActivity() {
     private lateinit var binding:ActivityScreensBinding
 

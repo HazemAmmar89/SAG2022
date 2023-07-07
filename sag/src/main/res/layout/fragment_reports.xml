@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/off_white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".screens.ui.fragments.ReportsFragment">
 
@@ -67,97 +68,137 @@
         app:layout_constraintTop_toTopOf="@id/guideline3"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/guideline2"
-        android:layout_marginLeft="80dp"
+        android:layout_marginStart="20dp"
         />
-    <TextView
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_widgets"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Category"
-        android:layout_marginBottom="15dp"
-        android:layout_marginStart="40dp"
-        style="@style/contact_us"
-        app:layout_constraintTop_toTopOf="@id/guideline2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/full_name_ed"
-        android:layout_marginLeft="80dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".20"
         />
-
-
-    <EditText
-        android:id="@+id/full_name_ed"
-        android:layout_width="350dp"
+    <TextView
+        android:id="@+id/email_tv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_edittext_background"
-        android:padding="15dp"
-        android:layout_marginTop="80dp"
-        android:hint="Hardware"
-        app:layout_constraintTop_toTopOf="@id/guideline2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-
+        android:text="@string/email"
+        style="@style/contact_us"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_widgets"
+        android:layout_marginStart="@dimen/_20sdp"
         />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/report_fragment_email_input_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/setup_ed_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_tv"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:hint="Enter Your Email"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/report_fragment_email_input_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="@color/dark_green"
+            android:textSize="@dimen/_12ssp"
+            android:paddingTop="@dimen/_11ssp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <TextView
+        android:id="@+id/code_sag_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Title"
-        android:layout_marginStart="40dp"
+        android:text="Code of SAG"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         style="@style/contact_us"
-        app:layout_constraintTop_toTopOf="@id/full_name_ed"
+        app:layout_constraintTop_toBottomOf="@id/report_fragment_email_input_text_layout"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/email_ed"
-        android:layout_marginLeft="80dp"
         />
 
 
-    <EditText
-        android:id="@+id/email_ed"
-        android:layout_width="350dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/report_fragment_code_sag_input_text_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_edittext_background"
-        android:padding="15dp"
-        android:layout_marginTop="95dp"
-        android:hint="Your Title"
-        app:layout_constraintBottom_toBottomOf="@id/guideline4"
-        app:layout_constraintTop_toTopOf="@id/full_name_ed"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-
-        />
+        style="@style/setup_ed_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/code_sag_tv"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:hint="Enter Your Code"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/report_fragment_code_sag_input_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="@color/dark_green"
+            android:textSize="@dimen/_12ssp"
+            android:paddingTop="@dimen/_11ssp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         style="@style/contact_us"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:text="Message"
-        app:layout_constraintBottom_toTopOf="@+id/massage"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:id="@+id/problem_tv"
+        android:text="Problem"
 
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guideline4" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/report_fragment_code_sag_input_text_layout"/>
 
 
 
-    <EditText
-        android:id="@+id/massage"
-        android:layout_width="350dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/report_fragment_problem_input_text_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_edittext_background2"
-        android:padding="60dp"
-        android:layout_marginTop="95dp"
-        android:hint="Give as many details as possible .."
-        app:layout_constraintBottom_toBottomOf="@id/guideline5"
-        app:layout_constraintTop_toTopOf="@id/email_ed"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-
-        />
+        style="@style/setup_ed_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:hint="Enter Your Message"
+        app:layout_constraintTop_toBottomOf="@id/problem_tv"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/report_fragment_problem_input_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text|textMultiLine"
+            android:imeOptions="actionDone"
+            android:maxLines="2000"
+            android:textColor="@color/dark_green"
+            android:textSize="@dimen/_12ssp"
+            android:paddingTop="@dimen/_11ssp"
+            android:lines="8"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_fragment_confirm_btn"
+        android:id="@+id/report_fragment_submit_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"

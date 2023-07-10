@@ -15,7 +15,7 @@ abstract class RoomDB : RoomDatabase() {
 
     abstract fun alarmDao(): AlarmDao
 
-    abstract fun cartDao(): ReminderDao
+    abstract fun reminderDao(): ReminderDao
 
 
 }

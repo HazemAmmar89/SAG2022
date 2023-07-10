@@ -8,6 +8,18 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="addAlarmFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-78" />
+                            <option name="y" value="-353" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="communicationFragment">
                     <value>
                       <LayoutPositions>
@@ -41,25 +53,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="createAlarm">
+                  <entry key="createNewAlarm">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="68" />
-                            <option name="y" value="-250" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="hilt_ReportsFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-367" />
-                            <option name="y" value="-254" />
+                            <option name="x" value="358" />
+                            <option name="y" value="-415" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -73,15 +73,6 @@
                             <option name="x" value="-89" />
                             <option name="y" value="26" />
                           </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_homeFragment_to_createAlarm">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

@@ -27,7 +27,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.listItem.setOnClickListener {
-            navigateSafe(R.id.action_homeFragment_to_createAlarm, container = R.id.frag_host)
+            navigateSafe(R.id.action_homeFragment_to_addAlarmFragment, container = R.id.frag_host)
         }
     }
 }

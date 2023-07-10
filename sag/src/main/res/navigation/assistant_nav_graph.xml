@@ -10,8 +10,8 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_createAlarm"
-            app:destination="@id/createAlarm" />
+            android:id="@+id/action_homeFragment_to_addAlarmFragment"
+            app:destination="@id/addAlarmFragment" />
     </fragment>
     <fragment
         android:id="@+id/reportsFragment"
@@ -29,11 +29,6 @@
         android:label="fragment_contactus"
         tools:layout="@layout/fragment_contactus" />
     <fragment
-        android:id="@+id/createAlarm"
-        android:name="com.example.sagapp.alarm.ui.fragments.CreateAlarm"
-        android:label="fragment_create_alarm"
-        tools:layout="@layout/fragment_create_alarm" />
-    <fragment
         android:id="@+id/communicationFragment"
         android:name="com.example.sagapp.commands.CommunicationFragment"
         android:label="fragment_communcation"
@@ -41,5 +36,19 @@
         <action
             android:id="@+id/action_communicationFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNewAlarm"
+        android:name="com.example.sagapp.alarm.ui.fragments.CreateNewAlarm"
+        android:label="fragment_edit_alarm"
+        tools:layout="@layout/fragment_edit_alarm" />
+    <fragment
+        android:id="@+id/addAlarmFragment"
+        android:name="com.example.sagapp.alarm.ui.fragments.AddAlarmFragment"
+        android:label="fragment_add_alarm"
+        tools:layout="@layout/fragment_add_alarm" >
+        <action
+            android:id="@+id/action_addAlarmFragment_to_createNewAlarm"
+            app:destination="@id/createNewAlarm" />
     </fragment>
 </navigation>

@@ -23,4 +23,9 @@ object StorageModule {
             "room_db"
         ).fallbackToDestructiveMigration().build()
     }
+
+    @Provides
+    fun provideAlarmDao(roomDataBase: RoomDB)= roomDataBase.alarmDao()
+
+
 }

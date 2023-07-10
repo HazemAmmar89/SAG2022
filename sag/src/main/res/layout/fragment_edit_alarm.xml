@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/off_white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".alarm.ui.fragments.EditAlarm">
+    tools:context=".alarm.ui.fragments.CreateNewAlarm">
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"
         android:layout_width="wrap_content"

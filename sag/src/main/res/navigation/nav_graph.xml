@@ -16,8 +16,11 @@
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
-            android:id="@+id/action_splashFragment_to_communicationFragment"
-            app:destination="@id/communicationFragment" />
+            android:id="@+id/action_splashFragment_to_assistant_nav_graph"
+            app:destination="@id/assistant_nav_graph" />
+        <action
+            android:id="@+id/action_splashFragment_to_screensActivity"
+            app:destination="@id/screensActivity" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -28,8 +31,11 @@
             android:id="@+id/action_loginFragment_to_forgetPasswordFragment"
             app:destination="@id/forgetPasswordFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_communicationFragment"
-            app:destination="@id/communicationFragment" />
+            android:id="@+id/action_loginFragment_to_assistant_nav_graph"
+            app:destination="@id/assistant_nav_graph" />
+        <action
+            android:id="@+id/action_loginFragment_to_screensActivity"
+            app:destination="@id/screensActivity" />
 
     </fragment>
     <fragment
@@ -59,21 +65,7 @@
             android:id="@+id/action_forgetPasswordFragment_to_successfulLoginFragment"
             app:destination="@id/successfulLoginFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/alarmFragment"
-        android:name="com.example.sagapp.alarm.ui.fragments.AlarmFragment"
-        android:label="fragment_alarm"
-        tools:layout="@layout/fragment_alarm" />
     <include app:graph="@navigation/assistant_nav_graph" />
-    <fragment
-        android:id="@+id/communicationFragment"
-        android:name="com.example.sagapp.commands.CommunicationFragment"
-        android:label="fragment_communcation"
-        tools:layout="@layout/fragment_communcation" >
-        <action
-            android:id="@+id/action_communicationFragment_to_screensActivity"
-            app:destination="@id/screensActivity" />
-    </fragment>
     <activity
         android:id="@+id/screensActivity"
         android:name="com.example.sagapp.screens.ui.activities.ScreensActivity"

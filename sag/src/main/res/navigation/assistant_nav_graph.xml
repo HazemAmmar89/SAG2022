@@ -3,12 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/assistant_nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/communicationFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.sagapp.screens.ui.fragments.homeFragment"
+        android:name="com.example.sagapp.screens.ui.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_createAlarm"
+            app:destination="@id/createAlarm" />
+    </fragment>
     <fragment
         android:id="@+id/reportsFragment"
         android:name="com.example.sagapp.screens.ui.fragments.ReportsFragment"
@@ -24,4 +28,18 @@
         android:name="com.example.sagapp.screens.ui.fragments.contactusFragment"
         android:label="fragment_contactus"
         tools:layout="@layout/fragment_contactus" />
+    <fragment
+        android:id="@+id/createAlarm"
+        android:name="com.example.sagapp.alarm.ui.fragments.CreateAlarm"
+        android:label="fragment_create_alarm"
+        tools:layout="@layout/fragment_create_alarm" />
+    <fragment
+        android:id="@+id/communicationFragment"
+        android:name="com.example.sagapp.commands.CommunicationFragment"
+        android:label="fragment_communcation"
+        tools:layout="@layout/fragment_communcation" >
+        <action
+            android:id="@+id/action_communicationFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

@@ -5,6 +5,7 @@ import com.example.data.remote.entities.ChangePasswordDto
 import com.example.data.remote.entities.ChangePasswordOtd
 import com.example.data.remote.entities.LoginDto
 import com.example.data.remote.entities.LoginParams
+import com.example.data.remote.entities.LogoutParams
 import com.example.data.remote.entities.ReportDto
 import com.example.data.remote.entities.ReportOtd
 import retrofit2.http.Body
@@ -25,7 +26,7 @@ interface RemoteServices {
     suspend fun changePassword(@Body changePasswordOtd: ChangePasswordOtd) : BaseResponse<ChangePasswordDto>
 
     @POST(LOGOUT)
-    suspend fun logout(@Body loginParams: LoginParams): BaseResponse<LoginDto>
+    suspend fun logout(@Body logoutParams: LogoutParams): BaseResponse<String>
 
     @POST(REPORT)
     suspend fun report(@Body reportParams: ReportOtd): BaseResponse<ReportDto>

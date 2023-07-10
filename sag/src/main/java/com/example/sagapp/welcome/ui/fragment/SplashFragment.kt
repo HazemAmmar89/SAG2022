@@ -49,7 +49,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding, SplashViewModel>() {
 
                     }
                     2->{
-                        navigateSafe(R.id.action_splashFragment_to_communicationFragment, container = R.id.frag_host)
+                        navigateSafe(R.id.action_splashFragment_to_screensActivity, container = R.id.frag_host)
 
                     }
                 }

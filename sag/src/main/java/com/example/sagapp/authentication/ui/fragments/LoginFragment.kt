@@ -64,7 +64,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
             is LoginAction.Success -> {
                 binding.spinKit.gone()
                 navigateSafe(
-                    R.id.action_loginFragment_to_communicationFragment,
+                    R.id.action_loginFragment_to_screensActivity,
                     container = R.id.frag_host
                 )
             }

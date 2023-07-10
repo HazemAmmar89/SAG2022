@@ -32,7 +32,7 @@ class CommunicationFragment : BaseFragment<FragmentCommuncationBinding, Commands
 
             override fun onSlideDone() {
                 navigateSafe(
-                    R.id.action_communicationFragment_to_screensActivity,
+                    R.id.action_communicationFragment_to_homeFragment,
                     container = R.id.frag_host
                 )
             }

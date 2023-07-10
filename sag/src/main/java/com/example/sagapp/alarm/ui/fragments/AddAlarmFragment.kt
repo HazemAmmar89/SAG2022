@@ -9,9 +9,7 @@ import com.example.sagapp.databinding.FragmentAddAlarmBinding
 
 class AddAlarmFragment : BaseFragment<FragmentAddAlarmBinding,AlarmViewModel>() {
     override fun onFragmentReady() {
-        binding.addAlarm.setOnClickListener {
 
-        }
     }
 
     override val mViewModel: AlarmViewModel by viewModels()

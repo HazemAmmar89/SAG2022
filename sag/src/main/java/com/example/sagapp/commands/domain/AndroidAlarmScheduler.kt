@@ -7,20 +7,28 @@ import android.content.Intent
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
+import com.example.core.response.Resource
 import com.example.data.alarm.AlarmItem
 import com.example.features.alarm.domain.AlarmScheduler
+import com.example.features.localDB.InsertAlarmUseCase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 import java.time.ZoneId
 import javax.inject.Inject
 
 class AndroidAlarmScheduler @Inject constructor(
-    private val context: Context,
+    private val context: Context
+
 ): AlarmScheduler {
 
     private val alarmManager = context.getSystemService(AlarmManager::class.java)
     private var intent = Intent(context, AlarmReceiver::class.java)
     @RequiresApi(Build.VERSION_CODES.O)
     override fun schedule(item: AlarmItem) {
+
+
+
        intent.apply {
            putExtra("EXTRA_MESSAGE", 1)
        }

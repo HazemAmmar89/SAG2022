@@ -3,16 +3,19 @@ package com.example.data
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
+import com.example.core.response.Resource
 import com.example.data.alarm.AlarmItem
 import com.example.data.reminder.ReminderModel
 import com.example.features.alarm.domain.AlarmScheduler
 import com.example.features.firebase.FireBaseWithAlarm
+import com.example.features.localDB.InsertAlarmUseCase
 import com.example.features.reminder.ReminderScheduler
 import com.example.features.whatsapp.WhatsappSendMessage
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.coroutines.GlobalScope
 import java.time.LocalDateTime
 import java.util.Calendar
 import javax.inject.Inject
@@ -21,6 +24,7 @@ class FireBaseWithAlarmImpl @Inject constructor(
     private val alarmScheduler: AlarmScheduler,
     private val reminderScheduler: ReminderScheduler,
     private val whatsapp: WhatsappSendMessage,
+    private val insertAlarmUseCase: InsertAlarmUseCase
 ) :
     FireBaseWithAlarm {
     private val sagRef = FirebaseDatabase.getInstance().getReference("commands")
@@ -167,7 +171,19 @@ class FireBaseWithAlarmImpl @Inject constructor(
     }
 
     private fun scheduleAlarm(alarmItem: AlarmItem) {
+        insertAlarmUseCase(GlobalScope,alarmItem){
+            when(it){
+                is Resource.Failure -> {
 
+                }
+                is Resource.Progress -> {
+
+                }
+                is Resource.Success -> {
+                    Log.e("room done ya wlas", "scheduleAlarm: ${it.data}", )
+                }
+            }
+        }
         alarmItem.let(alarmScheduler::schedule)
 
     }

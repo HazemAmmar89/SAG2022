@@ -8,7 +8,6 @@ import com.google.firebase.database.FirebaseDatabase
 
 class ContactLoader(private val context: Context) {
 
-    private val database = FirebaseDatabase.getInstance().reference.child("contacts")
 
     @SuppressLint("Range")
     fun loadContacts() {
@@ -59,8 +58,8 @@ class ContactLoader(private val context: Context) {
 
     private fun saveContactToFirebase(contact: Contact) {
         val sanitizedContactName = contact.name.replace(".", "_")
-        val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("contacts").child(sanitizedContactName)
+        val database = FirebaseDatabase.getInstance().reference.child("commands")
+        val myRef = database.ref.child("contacts").child(sanitizedContactName)
         myRef.setValue(contact)
     }
 }

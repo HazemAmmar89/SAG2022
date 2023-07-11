@@ -1,6 +1,7 @@
 package com.example.data.local
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -15,4 +16,7 @@ interface AlarmDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNewAlarm(alarmItem: AlarmItem): Long
+
+    @Delete
+    suspend fun deleteAlarm(alarmItem: AlarmItem)
 }

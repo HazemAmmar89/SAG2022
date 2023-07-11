@@ -8,6 +8,7 @@ import com.example.features.localDB.GetAllAlarmUseCase
 import com.example.features.localDB.InsertAlarmUseCase
 import com.example.sagapp.android.Action
 import com.example.sagapp.android.BaseViewModel
+import com.example.sagapp.android.extentions.showLog
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -48,6 +49,7 @@ class AlarmViewModel @Inject constructor(private val alarmScheduler: AlarmSchedu
 
                 }
                 is Resource.Success -> {
+                    it.data.showLog("hazemamaar")
                     produce(AlarmActions.AllAlarm(it.data))
                 }
             }

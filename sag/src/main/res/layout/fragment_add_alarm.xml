@@ -7,8 +7,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".alarm.ui.fragments.AddAlarmFragment">
 
-
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"
         android:layout_width="wrap_content"
@@ -33,6 +31,7 @@
         />
 
     <TextView
+        android:id="@+id/title_alarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Alarm_ttv"
@@ -57,9 +56,9 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_arrow_back"
         app:layout_constraintTop_toTopOf="@id/guideline3"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/guideline2"
-        android:layout_marginLeft="80dp"
+android:layout_marginStart="20dp"
         />
 
 
@@ -67,10 +66,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notesRV"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_30sdp"
         tools:listitem="@layout/alarm_items_view"
-        app:layout_constraintTop_toTopOf="@id/guideline4"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintTop_toBottomOf="@id/title_alarm"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
          />

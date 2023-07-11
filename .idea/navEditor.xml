@@ -8,18 +8,6 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="addAlarmFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-78" />
-                            <option name="y" value="-353" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="communicationFragment">
                     <value>
                       <LayoutPositions>
@@ -53,13 +41,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="createNewAlarm">
+                  <entry key="createAlarm">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="358" />
-                            <option name="y" value="-415" />
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -73,6 +61,15 @@
                             <option name="x" value="-89" />
                             <option name="y" value="26" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_homeFragment_to_createAlarm">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

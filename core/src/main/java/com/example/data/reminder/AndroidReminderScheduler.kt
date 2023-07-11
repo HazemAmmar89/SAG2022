@@ -1,13 +1,20 @@
 package com.example.data.reminder
 
 import android.app.AlarmManager
+import android.app.Notification
 import android.app.PendingIntent
+import android.app.TaskStackBuilder
 import android.content.Context
 import android.content.Intent
+import android.media.RingtoneManager
+import android.net.Uri
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.example.data.alarm.AlarmReceiver
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.net.toUri
+import com.example.core.R
 import com.example.data.reminder.enums.ReminderRepeatTypes
 import com.example.features.reminder.ReminderScheduler
 import java.time.ZoneId

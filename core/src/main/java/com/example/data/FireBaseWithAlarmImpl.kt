@@ -3,26 +3,28 @@ package com.example.data
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
+import com.example.core.response.Resource
 import com.example.data.alarm.AlarmItem
 import com.example.data.reminder.ReminderModel
-import com.example.data.reminder.enums.ReminderRepeatTypes
 import com.example.features.alarm.domain.AlarmScheduler
 import com.example.features.firebase.FireBaseWithAlarm
+import com.example.features.localDB.InsertAlarmUseCase
 import com.example.features.reminder.ReminderScheduler
 import com.example.features.whatsapp.WhatsappSendMessage
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.coroutines.GlobalScope
 import java.time.LocalDateTime
 import java.util.Calendar
 import javax.inject.Inject
-import kotlin.math.log
 
 class FireBaseWithAlarmImpl @Inject constructor(
     private val alarmScheduler: AlarmScheduler,
     private val reminderScheduler: ReminderScheduler,
-    private val whatsapp: WhatsappSendMessage
+    private val whatsapp: WhatsappSendMessage,
+    private val insertAlarmUseCase: InsertAlarmUseCase
 ) :
     FireBaseWithAlarm {
     private val sagRef = FirebaseDatabase.getInstance().getReference("commands")
@@ -44,7 +46,7 @@ class FireBaseWithAlarmImpl @Inject constructor(
                             AlarmItem(
                                 time = LocalDateTime.now()
                                     .plusSeconds(seconds.toString().toLong()),
-                                it.key.toString()
+                                message = it.key.toString()
                             )
                         )
                         collectPhoneNumbers["success"] = 1
@@ -69,7 +71,6 @@ class FireBaseWithAlarmImpl @Inject constructor(
                     if (cancelCollector["success"].toString() == "0") {
                         cancelCollector["success"] = 1
                         cancelRef.child(it.key.toString()).setValue(cancelCollector)
-
                     }
 
 
@@ -121,7 +122,7 @@ class FireBaseWithAlarmImpl @Inject constructor(
 
     override suspend fun reminderOperations() {
         val reminderRef = sagRef.child("reminder")
-        val calendar=Calendar.getInstance()
+        val calendar = Calendar.getInstance()
         reminderRef.addValueEventListener(object : ValueEventListener {
             @RequiresApi(Build.VERSION_CODES.O)
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -130,17 +131,24 @@ class FireBaseWithAlarmImpl @Inject constructor(
                     val collectPhoneNumbers = (phoneNumber.value as Map<*, *>).toMutableMap()
                     Log.e("llreminder", "onDataChange: ${collectPhoneNumbers.toString()}")
                     if (collectPhoneNumbers["success"].toString() == "0") {
-                        Log.e("reminder____", "onDataChange: ${collectPhoneNumbers.toString()}", )
+                        Log.e("reminder____", "onDataChange: ${collectPhoneNumbers.toString()}")
                         calendar[Calendar.YEAR] = collectPhoneNumbers["year"].toString().toInt()
-                        calendar[Calendar.MONTH] =collectPhoneNumbers["month"].toString().toInt() - 1
-                        calendar[Calendar.DAY_OF_MONTH] = collectPhoneNumbers["day"].toString().toInt()
-                        calendar[Calendar.HOUR_OF_DAY] = collectPhoneNumbers["hour"].toString().toInt()
-                        calendar[Calendar.AM_PM]=collectPhoneNumbers["AM_PM"].toString().toInt()
+                        calendar[Calendar.MONTH] =
+                            collectPhoneNumbers["month"].toString().toInt() - 1
+                        calendar[Calendar.DAY_OF_MONTH] =
+                            collectPhoneNumbers["day"].toString().toInt()
+                        calendar[Calendar.HOUR_OF_DAY] =
+                            collectPhoneNumbers["hour"].toString().toInt()
+                        calendar[Calendar.AM_PM] = collectPhoneNumbers["AM_PM"].toString().toInt()
                         calendar[Calendar.MINUTE] = collectPhoneNumbers["minute"].toString().toInt()
                         calendar[Calendar.MILLISECOND] = 0
                         calendar[Calendar.SECOND] = 0
-                        val reminderItem=ReminderModel( title = collectPhoneNumbers["title"].toString(),description = collectPhoneNumbers["description"].toString(),date = calendar)
-                        reminderItem.let (reminderScheduler::scheduleReminder)
+                        val reminderItem = ReminderModel(
+                            title = collectPhoneNumbers["title"].toString(),
+                            description = collectPhoneNumbers["description"].toString(),
+                            date = calendar
+                        )
+                        reminderItem.let(reminderScheduler::scheduleReminder)
                         collectPhoneNumbers["success"] = 1
                         reminderRef.child(phoneNumber.key.toString()).setValue(collectPhoneNumbers)
 
@@ -158,11 +166,24 @@ class FireBaseWithAlarmImpl @Inject constructor(
         })
 
 
-        Log.e("remainder22", "alarmOperations:${calendar.time} ____ ${calendar.timeInMillis}", )
+        Log.e("remainder22", "alarmOperations:${calendar.time} ____ ${calendar.timeInMillis}")
 
     }
 
     private fun scheduleAlarm(alarmItem: AlarmItem) {
+        insertAlarmUseCase(GlobalScope,alarmItem){
+            when(it){
+                is Resource.Failure -> {
+
+                }
+                is Resource.Progress -> {
+
+                }
+                is Resource.Success -> {
+                    Log.e("room done ya wlas", "scheduleAlarm: ${it.data}", )
+                }
+            }
+        }
         alarmItem.let(alarmScheduler::schedule)
 
     }

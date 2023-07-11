@@ -2,11 +2,11 @@ package com.example.sagapp.alarm.ui
 
 import android.content.Context
 import com.example.data.FireBaseWithAlarmImpl
-import com.example.data.alarm.AndroidAlarmScheduler
+import com.example.sagapp.commands.domain.AndroidAlarmScheduler
 import com.example.data.reminder.AndroidReminderScheduler
-import com.example.data.whatsapp.WhatsappSendMessageImpl
 import com.example.features.alarm.domain.AlarmScheduler
 import com.example.features.firebase.FireBaseWithAlarm
+import com.example.features.localDB.InsertAlarmUseCase
 import com.example.features.reminder.ReminderScheduler
 import com.example.features.whatsapp.WhatsappSendMessage
 import dagger.Module
@@ -30,6 +30,6 @@ object AlarmModule {
         return AndroidReminderScheduler(context)
     }
     @Provides
-    fun provideRepository( alarmScheduler: AlarmScheduler,reminderScheduler: ReminderScheduler,whatsappSendMessage: WhatsappSendMessage): FireBaseWithAlarm =
-        FireBaseWithAlarmImpl(alarmScheduler,reminderScheduler,whatsappSendMessage)
+    fun provideRepository( alarmScheduler: AlarmScheduler,reminderScheduler: ReminderScheduler,whatsappSendMessage: WhatsappSendMessage,insertAlarmUseCase: InsertAlarmUseCase): FireBaseWithAlarm =
+        FireBaseWithAlarmImpl(alarmScheduler,reminderScheduler,whatsappSendMessage,insertAlarmUseCase)
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/off_white"
     tools:context=".screens.ui.fragments.contactusFragment">
 
@@ -20,18 +20,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".10"
-        />
+        app:layout_constraintGuide_percent=".10" />
 
     <TextView
+        style="@style/home_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Contact Us"
-        style="@style/home_TV"
-       app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline1"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline3"
-        app:layout_constraintBottom_toBottomOf="@id/guideline1"
 
         />
 
@@ -40,8 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".05"
-        />
+        app:layout_constraintGuide_percent=".05" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -49,8 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".45"
-        />
+        app:layout_constraintGuide_percent=".20" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -58,164 +55,74 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".75"
-        />
+        app:layout_constraintGuide_percent=".75" />
 
     <TextView
         android:id="@+id/contact_us_backarrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:drawableLeft="@drawable/ic_arrow_back"
-        app:layout_constraintTop_toTopOf="@id/guideline3"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/guideline2"
-        android:layout_marginLeft="80dp"
-        />
-    <TextView
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline3" />
+
+    <ImageView
+        android:id="@+id/call_us"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Full Name"
-        android:layout_marginBottom="15dp"
-        android:layout_marginStart="40dp"
-        style="@style/contact_us"
-        app:layout_constraintTop_toTopOf="@id/guideline2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/full_name_ed"
-        android:layout_marginLeft="80dp"
-        />
+        android:src="@drawable/circul3"
+        android:layout_marginStart="@dimen/_50sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline4"/>
 
-
-    <EditText
-        android:id="@+id/full_name_ed"
-        android:layout_width="350dp"
+    <ImageView
+        android:id="@+id/call_us_icon"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_edittext_background"
-        android:padding="15dp"
-        android:layout_marginTop="80dp"
-        android:hint="Your Name"
-        app:layout_constraintTop_toTopOf="@id/guideline2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-
+        android:src="@drawable/call"
+        app:layout_constraintStart_toStartOf="@id/call_us"
+        app:layout_constraintEnd_toEndOf="@id/call_us"
+        app:layout_constraintTop_toTopOf="@id/call_us"
+        app:layout_constraintBottom_toBottomOf="@id/call_us"
         />
 
 
     <TextView
+        android:id="@+id/phone_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
-        android:layout_marginStart="40dp"
-        style="@style/contact_us"
-        app:layout_constraintTop_toTopOf="@id/full_name_ed"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/email_ed"
-        android:layout_marginLeft="80dp"
-        />
-
-
-    <EditText
-        android:id="@+id/email_ed"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_edittext_background"
-        android:padding="15dp"
-        android:layout_marginTop="95dp"
-        android:hint="Your Email"
-        app:layout_constraintBottom_toBottomOf="@id/guideline4"
-        app:layout_constraintTop_toTopOf="@id/full_name_ed"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-
-        />
-
-    <TextView
-        style="@style/contact_us"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:text="Message"
-        app:layout_constraintBottom_toTopOf="@+id/massage"
-
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="01234567891"
+        android:textColor="@color/dark_green"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/guideline1"
         app:layout_constraintTop_toTopOf="@id/guideline4" />
 
-
-
-    <EditText
-        android:id="@+id/massage"
-        android:layout_width="350dp"
+    <ImageView
+        android:id="@+id/facebook"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_edittext_background2"
-        android:padding="60dp"
-        android:layout_marginTop="95dp"
-        android:hint="Give as many details as possible .."
-        app:layout_constraintBottom_toBottomOf="@id/guideline5"
-        app:layout_constraintTop_toTopOf="@id/email_ed"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="40dp"
-           android:drawableLeft="@drawable/line"
-            android:layout_marginTop="580dp"
-            />
-
-        <TextView
-            android:id="@+id/textView2"
-            style="@style/contact_us"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:layout_marginTop="580dp"
-            android:layout_weight="1"
-            android:text="OR"
-
-            />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginRight="40dp"
-            android:drawableLeft="@drawable/line"
-            android:layout_marginTop="580dp" />
-
-    </LinearLayout>
-
-
-
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_fragment_confirm_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:src="@drawable/facebook"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        style="@style/button_style"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:text="Submit"
-        android:textSize="@dimen/_12ssp"
-        android:layout_marginBottom="@dimen/_18sdp"
+        app:layout_constraintTop_toBottomOf="@id/call_us"
+        android:layout_marginStart="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_50sdp"
         />
 
+    <TextView
+        android:id="@+id/facebook_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:text="SAG @facebook.com"
+        android:textColor="@color/dark_green"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/guideline1"
+        app:layout_constraintTop_toBottomOf="@id/call_us"
 
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
